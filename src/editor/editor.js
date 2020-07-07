@@ -15,6 +15,24 @@ class EditorComponent extends React.Component {
         }
     }
 
+    componentDidMount = () => {
+        this.setState({
+            text: this.props.selectedNote.body,
+            title: this.props.selectedNote.title,
+            id:this.props.selectedNote.id
+        })
+    }
+
+    componentDidUpdate = () => {
+        if(this.props.selectedNote.id !== this.state.id) {
+            this.setState({
+                text: this.props.selectedNote.body,
+                title: this.props.selectedNote.title,
+                id:this.props.selectedNote.id
+            })
+        }
+    }
+
     updateBody = (val) => {
         this.setState({
             text: val
@@ -23,7 +41,10 @@ class EditorComponent extends React.Component {
     } 
 
     update = debounce(() => {
-        console.log('Updating DB')
+        this.props.noteUpdate(this.state.id, {
+            title: this.state.title,
+            body: this.state.text
+        })
     }, 1500)
 
     render() {
