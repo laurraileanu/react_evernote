@@ -7,14 +7,14 @@ const firebase = require('firebase')
 require('firebase/firestore')
 
 firebase.initializeApp({
-  apiKey: "AIzaSyDZshdVfmeJC4FcyIMgzIGVQD6SFN5Bw5c",
-  authDomain: "evernote-clone-1823c.firebaseapp.com",
-  databaseURL: "https://evernote-clone-1823c.firebaseio.com",
-  projectId: "evernote-clone-1823c",
-  storageBucket: "evernote-clone-1823c.appspot.com",
-  messagingSenderId: "651236721928",
-  appId: "1:651236721928:web:e12bb094ad3a0bf55958bd",
-  measurementId: "G-D3FDPQGXV4"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_DATABASE_URL,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId:process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId:process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 });
 firebase.analytics();
 
