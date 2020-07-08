@@ -47,12 +47,25 @@ class EditorComponent extends React.Component {
         })
     }, 1500)
 
-    render() {
+    updateTitle = async (event) => {
+        const {value} = event.target
+        await this.setState({
+            title: value
+        })
+        this.update()
+    }
 
+    render() {
         const {classes} = this.props
-        
         return(
             <div className={classes.editorContainer}>
+                <BorderColorIcon className={classes.editIcon}></BorderColorIcon>
+                <input
+                    className={classes.titleInput}
+                    placeholder="note title..."
+                    value={this.state.title ? this.state.title : ''}
+                    onChange={this.updateTitle}
+                />
                 <ReactQuill 
                     value={this.state.text} 
                     onChange={this.updateBody}
