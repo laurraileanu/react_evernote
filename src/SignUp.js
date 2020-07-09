@@ -18,16 +18,16 @@ const SignUp = ({ history }) => {
 
     const handleSignUp = useCallback(async event => {
         event.preventDefault();
-        const { email, password } = event.target.elements;
+        const { email, password } = event.target.elements
         try {
             await firebase
                 .auth()
-                .createUserWithEmailAndPassword(email.value, password.value);
-            history.push("/");
+                .createUserWithEmailAndPassword(email.value, password.value)
+            history.push("/")
         } catch (error) {
-            alert(error);
+            alert(error)
         }
-    }, [history]);
+    }, [history])
 
     return(
         <form style={styles} autoComplete="off" onSubmit={handleSignUp}>
@@ -41,7 +41,7 @@ const SignUp = ({ history }) => {
             <br></br>
             <br></br>
             <Button variant="contained" color="primary" type="submit">
-                Primary
+                Signup
             </Button>
             <p>Already have an account? <Link to="/login">Login</Link></p>
         </form>

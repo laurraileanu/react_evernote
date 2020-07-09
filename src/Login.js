@@ -18,21 +18,21 @@ const Login = ({history}) => {
 
     const handleLogin = useCallback(
         async event => {
-          event.preventDefault();
-          const { email, password } = event.target.elements;
+          event.preventDefault()
+          const { email, password } = event.target.elements
           try {
             await firebase
               .auth()
-              .signInWithEmailAndPassword(email.value, password.value);
-            history.push("/");
+              .signInWithEmailAndPassword(email.value, password.value)
+            history.push("/")
           } catch (error) {
-            alert(error);
+            alert(error)
           }
         },
         [history]
     );
 
-    const { currentUser } = useContext(AuthContext);
+    const { currentUser } = useContext(AuthContext)
 
     if (currentUser) {
         return <Redirect to="/"/>;
@@ -50,7 +50,7 @@ const Login = ({history}) => {
             <br></br>
             <br></br>
             <Button variant="contained" color="primary" type="submit">
-                Primary
+                Login
             </Button>
             <p>Dont have an account yet? <Link to="/signup">Signup</Link></p>
         </form>
