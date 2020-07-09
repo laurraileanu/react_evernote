@@ -37,3 +37,9 @@ html, body {
     top: 50px;
     left: calc(50% - 165px);
   }
+  .logout-btn {
+    position: absolute !important;
+    bottom:50px;
+    right:50px;
+    z-index: 10;
+  }
